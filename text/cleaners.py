@@ -2,7 +2,6 @@
 
 '''
 Cleaners are transformations that run over the input text at both training and eval time.
-
 Cleaners can be selected by passing a comma-delimited list of cleaner names as the "cleaners"
 hyperparameter. Some cleaners are English-specific. You'll typically want to use:
   1. "english_cleaners" for English text
@@ -15,7 +14,6 @@ hyperparameter. Some cleaners are English-specific. You'll typically want to use
 import re
 from unidecode import unidecode
 from phonemizer import phonemize
-
 
 # Regular expression matching whitespace:
 _whitespace_re = re.compile(r'\s+')
@@ -96,5 +94,14 @@ def english_cleaners2(text):
   text = lowercase(text)
   text = expand_abbreviations(text)
   phonemes = phonemize(text, language='en-us', backend='espeak', strip=True, preserve_punctuation=True, with_stress=True)
+  phonemes = collapse_whitespace(phonemes)
+  return phonemes
+
+def spanish_cleaners(text):
+  '''Pipeline for Spanish text, including phoneme conversion.'''
+  text = convert_to_ascii(text)
+  text = lowercase(text)
+  text = collapse_whitespace(text)
+  phonemes = phonemize(text, language='es', backend='espeak', strip=True)
   phonemes = collapse_whitespace(phonemes)
   return phonemes
