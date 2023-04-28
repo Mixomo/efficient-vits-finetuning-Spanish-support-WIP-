@@ -1,4 +1,36 @@
-# Making VITS efficient (wip)
+# Making VITS efficient (wip) (spanish support wip)
+
+For spanish preprocessing text:
+```
+python preprocess.py --text_index 1 --text_cleaners spanish_cleaners --filelists /path/to/train/filelist.txt /path/to/val/filelist.txt 
+```
+if you get this warning when preprocessing, ignore it. 
+```
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
+WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
+```
+
+
+For training, remember to update the ljs_base.json file in ```configs/ljs_base.json``` with the paths of your training and validation txt files, as well as the text_cleaner to spanish_cleaners.
+
+```
+"name": "your_speaker_name",
+    "training_files": "/path/to/train/filelist.txt",
+    "validation_files": "/path/to/val/filelist.txt",
+    "text_cleaners": ["spanish_cleaners"],
+```
+
+## **FOR NOW THE TRAINING IS NOT WORKING**
+
+The error is in this issue: https://github.com/nivibilla/efficient-vits-finetuning/issues/1
+
+If someone more experienced, wants to collaborate to find a solution in this fork, feel free to do it!
 
 ## Goals
  - [ ] Try to implement LoRA Finetuning on VITS by modifying attentions.py as described in the LoRA Paper
