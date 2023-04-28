@@ -13,3 +13,5 @@ tqdm
 phonemizer
 bitsandbytes
 wandb
+inflect
+num2words
