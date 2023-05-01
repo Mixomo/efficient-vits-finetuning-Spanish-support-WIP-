@@ -125,7 +125,6 @@ def english_cleaners2(text):
 
 def spanish_cleaners(text):
   '''Pipeline for Spanish text (using phonemes)'''
-  text = convert_to_ascii(text)
   text = expand_spanish_abbreviations(text)
   text  = convert_num_to_words(text, language="es")
   phonemes = phonemize(
@@ -144,7 +143,6 @@ def spanish_cleaners(text):
 
 def spanish_cleaners2(text):
   '''As of newer versions of espeak-ng, Latin Spanish (es-419) is improved.'''
-  text = convert_to_ascii(text)
   text = expand_spanish_abbreviations(text)
   text  = convert_num_to_words(text, language="es")
   phonemes = phonemize(
