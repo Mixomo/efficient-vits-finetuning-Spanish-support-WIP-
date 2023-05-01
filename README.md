@@ -28,6 +28,10 @@ For training, remember to update the ljs_base.json file in ```configs/ljs_base.j
 
 TRAINING IT´S NOW WORKING! 
 
+Start training with
+```
+python train.py -c configs/ljs_base.json -m ljs_base
+```
 ## Goals
  - [ ] Try to implement LoRA Finetuning on VITS by modifying attentions.py as described in the LoRA Paper
    - [x] Doesnt work as the generator doesnt get updated, need to research more
