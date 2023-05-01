@@ -30,7 +30,7 @@ TRAINING IT´S NOW WORKING!
 
 Start training with
 ```
-python train.py -c configs/ljs_base.json -m ljs_base
+python train.py -c configs/ljs_base.json -m ljs_base -p "output_path/to/save"
 ```
 ## Goals
  - [ ] Try to implement LoRA Finetuning on VITS by modifying attentions.py as described in the LoRA Paper
