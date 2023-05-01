@@ -26,11 +26,7 @@ For training, remember to update the ljs_base.json file in ```configs/ljs_base.j
     "text_cleaners": ["spanish_cleaners"],
 ```
 
-## **FOR NOW THE TRAINING IS NOT WORKING**
-
-The error is in this issue: https://github.com/nivibilla/efficient-vits-finetuning/issues/1
-
-If someone more experienced, wants to collaborate to find a solution in this fork, feel free to do it!
+TRAINING IT´S NOW WORKING! 
 
 ## Goals
  - [ ] Try to implement LoRA Finetuning on VITS by modifying attentions.py as described in the LoRA Paper
