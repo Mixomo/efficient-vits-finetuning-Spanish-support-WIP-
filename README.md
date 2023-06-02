@@ -4,33 +4,32 @@ For spanish preprocessing text:
 ```
 python preprocess.py --text_index 1 --text_cleaners spanish_cleaners --filelists /path/to/train/filelist.txt /path/to/val/filelist.txt 
 ```
+If you using and ocmpiling the most recent version of espeak-ng, you can preprocess the text in Latin American Spanish (if you want to train a voice with that dialect) using the following:
+```
+python preprocess.py --text_index 1 --text_cleaners spanish_cleaners2 --filelists /path/to/train/filelist.txt /path/to/val/filelist.txt 
+```
+
 if you get this warning when preprocessing, ignore it. 
 ```
 WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
 WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
 WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
-WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
-WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
-WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
-WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
-WARNING:phonemizer:words count mismatch on 100.0% of the lines (1/1)
 ```
 
 
-For training, remember to update the ljs_base.json file in ```configs/ljs_base.json``` with the paths of your training and validation txt files, as well as the text_cleaner to spanish_cleaners.
+For training, remember to update the ```configs/base_es_singlespeaker_22k.json``` or ```configs/base_es-latin_singlespeaker_22k``` file with the paths of your training and validation files, as well as model settings such as batch size and number of epochs to train. This depends of your dataset.
 
 ```
 "name": "your_speaker_name",
     "training_files": "/path/to/train/filelist.txt",
     "validation_files": "/path/to/val/filelist.txt",
-    "text_cleaners": ["spanish_cleaners"],
 ```
 
 TRAINING IT´S NOW WORKING! 
 
 Start training with
 ```
-python train.py -c configs/ljs_base.json -m ljs_base -p "output_path/to/save"
+python train.py -c configs/base_es_singlespeaker_22k.json -m "voice_name" -p "output_path/to/save"
 ```
 ## Goals
  - [ ] Try to implement LoRA Finetuning on VITS by modifying attentions.py as described in the LoRA Paper
